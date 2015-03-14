@@ -28,6 +28,7 @@ public class UploadFileController {
 			System.out.println(message);
 		}
 		else{
+			System.out.println(uploadForm.getUploadedFile());
 			System.out.println(message);
 			// do the parsing logic
 		}
