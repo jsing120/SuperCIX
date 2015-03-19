@@ -1,5 +1,6 @@
 package com.infy.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -7,10 +8,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.infy.forms.FileUploadForm;
+import com.infy.parser.Parsersample;
 
 @Controller
 public class UploadFileController {
 
+	@Autowired
+	private Parsersample parserTool;
 	@RequestMapping("/upload")
 	public ModelAndView landingPage() {
 
@@ -29,6 +33,7 @@ public class UploadFileController {
 		}
 		else{
 			System.out.println(uploadForm.getUploadedFile());
+			parserTool.cleanHtml(uploadForm.getUploadedFile());
 			System.out.println(message);
 			// do the parsing logic
 		}
