@@ -285,7 +285,7 @@ p {
 		<br><br><br>
 		<hr>
 		<br>
-		<input class="file-upload-button" type="submit" value="upload File">
+		<input class="file-upload-button" type="submit" value="Convert to RWD">
 	</form:form>
 	<script
 		src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>

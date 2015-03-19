@@ -6,6 +6,7 @@
 <body>
 
 ${message}
+${file}
 
 </body>
 </html>
