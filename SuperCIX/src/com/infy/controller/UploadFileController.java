@@ -1,11 +1,5 @@
 package com.infy.controller;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-
-import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -30,12 +24,8 @@ public class UploadFileController {
 	}
 
 	@RequestMapping(value="/uploaded",method = RequestMethod.POST)
-	public PrintWriter uploadeFile(@ModelAttribute("uploadForm") FileUploadForm uploadForm,HttpServletResponse response) {
-		
-	        
+	public ModelAndView uploadeFile(@ModelAttribute("uploadForm") FileUploadForm uploadForm) {
 		String message = "File Successfully Uploaded";
-		PrintWriter writer=null;
-		ModelAndView modelView= new ModelAndView();
 		if(uploadForm.getUploadedFile()==null)
 		{
 			message= "No File uploaded";
@@ -43,27 +33,10 @@ public class UploadFileController {
 		}
 		else{
 			System.out.println(uploadForm.getUploadedFile());
-		// writer= parserTool.cleanHtml(uploadForm.getUploadedFile());
+			parserTool.cleanHtml(uploadForm.getUploadedFile());
 			System.out.println(message);
 			// do the parsing logic
 		}
-		modelView.setViewName("uploaded");
-		modelView.addObject("message", message);
-		modelView.addObject("file", writer);
-		response.setContentType("text/html");
-	    response.setHeader("Content-Disposition","attachment;filename=myFile.html");
-	    
-	    try {
-	    ServletOutputStream out = response.getOutputStream();
-	  
-			out.println(parserTool.cleanHtml(uploadForm.getUploadedFile()));
-		
-	    out.flush();
-	    out.close();
-	    } catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return null;
+		return new ModelAndView("uploaded", "message", message);
 	}
 }
