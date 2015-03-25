@@ -47,11 +47,11 @@ public class Parsersample {
 		
 		 
 		
-		
+		  OutputDocument outputDocument=null;
 		
 		try {
 			source = new Source(is);
-			OutputDocument outputDocument = new OutputDocument(source);
+			 outputDocument = new OutputDocument(source);
 			
 			/*
 			 * 
@@ -238,8 +238,8 @@ public class Parsersample {
 			  writer.println(outputDocument.toString());
 			  
 			  writer.close();
-			System.out.println(outputDocument.toString());
-			  System.out.println("Finished");
+			return (outputDocument.toString());
+			
 
 			
 			//System.out.println(" This source of the text" + source.getTextExtractor().toString());
@@ -248,51 +248,11 @@ public class Parsersample {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		 
-		  //Create output file
-		  try
-		  {
-			 
-			
-		  }
-		  
-		  catch (Exception e)
-		  {
-			  
-		  }
-		  
-		  
-		  
-		  
-		  source.fullSequentialParse();
-		  
-		  OutputDocument outputDocument=new OutputDocument(source);
-		  
-		  List<StartTag> tags=source.getAllStartTags();
-		  
-		  for (Iterator<StartTag> i=tags.iterator(); i.hasNext(); ) {
-			  
-		    Tag tag=i.next();
-		    
-		   //System.out.println(tag.getName());
-		   if (tag.getName()=="head")
-		   {
-			   
-		   }
-		 
-		  //Output=Output+(tag.getElement());
-		    Output="";
-		  
-
-		  }
+		return (outputDocument.toString());
 		
-		return outputDocument.toString();
-		  }
-		  //Source formatSource=new Source(OutputDocument.toString());
-		 // SourceFormatter formatter=new SourceFormatter(formatSource);
-		  //formatter.setIndentString("    ");
-		  //return formatter.toString();
-		}
+		 
+	}}
+
 
 	
 
