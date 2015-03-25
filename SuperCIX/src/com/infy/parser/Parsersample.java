@@ -33,7 +33,6 @@ public class Parsersample {
 	String Output="";
 	
 	public String cleanHtml(MultipartFile uploadedFile){
-		PrintWriter writer =null;
 		  Source source = null;
 		  StringBuilder builder1 = new StringBuilder();
 		  InputStream inputStream = null;
@@ -47,11 +46,11 @@ public class Parsersample {
 		
 		 
 		
-		  OutputDocument outputDocument=null;
+		
 		
 		try {
 			source = new Source(is);
-			 outputDocument = new OutputDocument(source);
+			OutputDocument outputDocument = new OutputDocument(source);
 			
 			/*
 			 * 
@@ -234,12 +233,12 @@ public class Parsersample {
 				
 				
 			}
-			writer = new PrintWriter("response.html", "UTF-8");
+			 PrintWriter writer = new PrintWriter("response.html", "UTF-8");
 			  writer.println(outputDocument.toString());
 			  
 			  writer.close();
-			return (outputDocument.toString());
-			
+			System.out.println(outputDocument.toString());
+			  System.out.println("Finished");
 
 			
 			//System.out.println(" This source of the text" + source.getTextExtractor().toString());
@@ -248,11 +247,50 @@ public class Parsersample {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return (outputDocument.toString());
-		
 		 
-	}}
+		  //Create output file
+		  try
+		  {
+			 
+			
+		  }
+		  
+		  catch (Exception e)
+		  {
+			  
+		  }
+		  
+		  
+		  
+		  
+		  source.fullSequentialParse();
+		  
+		  OutputDocument outputDocument=new OutputDocument(source);
+		  
+		  List<StartTag> tags=source.getAllStartTags();
+		  
+		  for (Iterator<StartTag> i=tags.iterator(); i.hasNext(); ) {
+			  
+		    Tag tag=i.next();
+		    
+		   //System.out.println(tag.getName());
+		   if (tag.getName()=="head")
+		   {
+			   
+		   }
+		 
+		  //Output=Output+(tag.getElement());
+		    Output="";
+		  
 
+		  }
+		return Output;
+		  }
+		  //Source formatSource=new Source(OutputDocument.toString());
+		 // SourceFormatter formatter=new SourceFormatter(formatSource);
+		  //formatter.setIndentString("    ");
+		  //return formatter.toString();
+		}
 
 	
 

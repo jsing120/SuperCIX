@@ -4,15 +4,10 @@
 
 <html>
 <head>
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <link rel="canonical" href="http://codepen.io/wallaceerick/pen/fEdrz/" />
 
-
-	<link rel='stylesheet'
-	href='//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'/>
-	<link rel='stylesheet'
-	href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css'/>
-<link rel='stylesheet' href='//cdn.datatables.net/plug-ins/f2c75b7247b/integration/bootstrap/3/dataTables.bootstrap.css'/>
+<link rel='stylesheet'
+	href='//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'>
 <style class="cp-pen-styles">
 @import url("http://fonts.googleapis.com/css?family=Lato");
 
@@ -28,23 +23,9 @@ body {
 	font-family: Lato, Arial;
 	color: #fff;
 	padding: 55px 25px;
-background: #1e5799; /* Old browsers */
-background: -moz-linear-gradient(top,  #1e5799 0%, #2989d8 50%, #207cca 100%, #7db9e8 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1e5799), color-stop(50%,#2989d8), color-stop(100%,#207cca), color-stop(100%,#7db9e8)); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top,  #1e5799 0%,#2989d8 50%,#207cca 100%,#7db9e8 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top,  #1e5799 0%,#2989d8 50%,#207cca 100%,#7db9e8 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top,  #1e5799 0%,#2989d8 50%,#207cca 100%,#7db9e8 100%); /* IE10+ */
-background: linear-gradient(to bottom,  #1e5799 0%,#2989d8 50%,#207cca 100%,#7db9e8 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */
+	background-color: #e74c3c;
+}
 
-	font-size: 140%;
-}
-th{
-background-color: #1e5799;
-}
-td{
-	background-color: #7db9e8;
-}
 h1 {
 	font-weight: normal;
 	font-size: 40px;
@@ -110,7 +91,7 @@ p a:hover {
 	font-size: 16px;
 	padding: 11px 17px;
 	border: none;
-	background-color: #7db9e8;
+	background-color: #c0392b;
 	-moz-transition: all 0.2s ease-in;
 	-o-transition: all 0.2s ease-in;
 	-webkit-transition: all 0.2s ease-in;
@@ -120,7 +101,7 @@ p a:hover {
 }
 
 .file-upload-input:hover, .file-upload-input:focus {
-	background-color: #22D8CC;
+	background-color: #ab3326;
 	outline: none;
 }
 
@@ -133,7 +114,7 @@ p a:hover {
 	padding: 11px 20px;
 	border: none;
 	margin-left: -1px;
-	background-color: #1e5799;
+	background-color: #962d22;
 	float: left;
 	/* IE 9 Fix */
 	-moz-transition: all 0.2s ease-in;
@@ -143,21 +124,10 @@ p a:hover {
 }
 
 .file-upload-button:hover {
-	background-color: #22D8CC;
+	background-color: #6d2018;
 }
 </style>
 <style type="text/css">
-#tagTable_wrapper{
-width:50%;
-
-  clear: both;
-  zoom: 1;
-
-}
-th{
- color: 
-}
-
 #header h1 {
 	color: #fff;
 	text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px
@@ -187,8 +157,6 @@ body {
 	color: #fff;
 	padding: 55px 25px;
 	background-color: $background;
-	margin:auto;
-	width:1024px;
 }
 
 h1 {
@@ -297,7 +265,6 @@ p {
 }
 </style>
 
-
 </head>
 <body>
 
@@ -314,65 +281,17 @@ p {
 					class="custom-file-upload-hidden" tabindex="-1">
 			</div>
 		</div>
-		<input class="file-upload-button" onclick="loadIphonePreview();" type="button" value="Preview" style="margin-left:40px;">
-		<input class="file-upload-button" onclick="loadIphone();" type="button" value="Convert to RWD" style="margin-left:40px;">
-		
 		<br>
 		<br><br><br>
 		<hr>
 		<br>
-		
-		<br><br>
-		<div id="ajaxWrapper">
-		<table id="tagTable"  class="table table-striped table-bordered" cellspacing="0" width="100%">
-			<thead>
-				<tr>
-				<th>
-					Element Tag
-				</th>
-				<th>
-					Can be Converted?
-				</th>
-			</tr>
-			</thead>
-			<tbody id="ajaxbody">
-			
-			</tbody>
-		</table>
-		</div>
-		<div id="phoneView" style="background-image: url('../../SuperCIX/resources/img/iPhone.png');height: 672px;
-  left: 54%;
-  top: 29%;
-  position: absolute;  width: 359px;">
-  <iframe id="innerContent" style="position: absolute;
-  width: 275px;
-  height: 412px;
-  top: 120px;
-  left: 42px;
-  background-color: white;">
- 
-  
- 
-  </iframe>
-  
-  </div>
+		<input class="file-upload-button" type="submit" value="upload File">
 	</form:form>
-	
 	<script
 		src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script
 		src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-		 <script src="http://malsup.github.com/jquery.form.js"></script>
-		<script type="text/javascript" src="//cdn.datatables.net/1.10.5/js/jquery.dataTables.min.js"></script>
-		
-		<script
-		src="//cdn.datatables.net/plug-ins/f2c75b7247b/integration/bootstrap/3/dataTables.bootstrap.js"></script>
-		<script type="text/javascript">
-			$(document).ready(function(){
-			    $('#tagTable').DataTable({ "deferRender": true});
-			});
-
-	
+	<script>
 ;
 (function ($) {
     var multipleSupport = typeof $('<input/>')[0].multiple !== 'undefined', isIE = /msie/i.test(navigator.userAgent);
@@ -435,7 +354,7 @@ p {
                         $wrap.after($file);
                         $file.customFile();
                     }
-                } else {z
+                } else {
                     $inputs.parent().remove();
                     $wrap.appendTo($wrap.parent());
                     $wrap.find('input').focus();
@@ -447,86 +366,7 @@ p {
 $('input[type=file]').customFile();
 //@ sourceURL=pen.js
 </script>
-	<script type="text/javascript">
 	
-	function loadIphone()
-	{
-		
-		 
-		//using jquery.form.js
-		// alert('kuta');
-		      
-		      $("#fileupload").attr("action","uploaded.do");
-		     $("#fileupload").ajaxForm({
-		      success:function(data) { 
-		    	 // alert(data);		    
-		    	  var doc = document.getElementById('innerContent').contentWindow.document;
-		    	  doc.open();
-		    	  doc.write(data);
-		    	  doc.close();
-		    	 /*  var $iframe = $('#innerContent');
-		    	  $iframe.ready(function() {
-		    		  $iframe.contents();
-		    	      $iframe.contents(data); */
-		    	 
-		           
-		       },
-		       dataType:"html"
-		     }).submit();
-			// alert('kmina');
-		  
-	}
-		     
-	function loadIphonePreview()
-	{
-		
-		 
-		//using jquery.form.js
-		 
-		      $("#fileupload").attr("action","preview.do");
-		     $("#fileupload").ajaxForm({
-		      success:function(data) { 
-		    	//  alert(data);		    
-		    	  var doc = document.getElementById('innerContent').contentWindow.document;
-		    	  doc.open();
-		    	  doc.write(data);
-		    	  doc.close();
-		    	 /*  var $iframe = $('#innerContent');
-		    	  $iframe.ready(function() {
-		    		  $iframe.contents();
-		    	      $iframe.contents(data); */
-		    	 
-		    	      loadTable();
-		       },
-		       dataType:"html"
-		     }).submit();
-			
-	}
-	function loadTable()
-	{
-		
-		 
-		//using jquery.form.js
-		 
-		      $("#fileupload").attr("action","getTable.do");
-		     $("#fileupload").ajaxForm({
-		      success:function(data) { 
-		    	 // alert(data);		    
-		    	  $("#ajaxWrapper").html('');
-		    	  $("#ajaxWrapper").html(data);
-		    	 /*  var $iframe = $('#innerContent');
-		    	  $iframe.ready(function() {
-		    		  $iframe.contents();
-		    	      $iframe.contents(data); */
-		    	 
-		           
-		       },
-		       dataType:"html"
-		     }).submit();
-			
-		  
-	}
-	</script>
 </body>
 
 
